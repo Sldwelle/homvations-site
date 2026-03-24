@@ -1,10 +1,10 @@
 "use client";
 
+
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
 import Auth from './components/Auth';
 import { Pizza, Sparkles, Zap, Clock, ArrowRight, Home, Rocket, Star, Heart, LogOut } from 'lucide-react';
-import Auth from './components/Auth';
 
 export default function HomvationsHub() {
   const [session, setSession] = useState<any>(null);
