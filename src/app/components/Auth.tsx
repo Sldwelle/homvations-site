@@ -1,31 +1,36 @@
+
 "use client";
 
-import React, { useState } from 'react';
-import { supabase } from '../../lib/supabase';
-import { Mail, Sparkles, Loader2 } from 'lucide-react';
+import React, { useState } from "react";
+import { supabase } from "../../lib/supabase";
+import { Mail, Sparkles, Loader2, User } from "lucide-react";
 
 export default function Auth() {
   const [loading, setLoading] = useState(false);
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setMessage('');
+    setMessage("");
 
-    const { error } = await supabase.auth.signInWithOtp({
-      email,
-      options: {
-        emailRedirectTo: window.location.origin,
+    const { error } = await supabase.from("waitlist_leads").insert([
+      {
+        name,
+        email,
       },
-    });
+    ]);
 
     if (error) {
-      setMessage('Oops! ' + error.message);
+      setMessage("Oops! " + error.message);
     } else {
-      setMessage('Check your email for the magic link!');
+      setMessage("Thanks! You’re on the list.");
+      setName("");
+      setEmail("");
     }
+
     setLoading(false);
   };
 
@@ -38,14 +43,45 @@ export default function Auth() {
         <h2 className="text-2xl font-black italic">Join Homvations</h2>
       </div>
 
-      <form onSubmit={handleLogin} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="email" className="block text-xs font-black text-purple-950 uppercase mb-2 ml-1">
+          <label
+            htmlFor="name"
+            className="block text-xs font-black text-purple-950 uppercase mb-2 ml-1"
+          >
+            Your Name
+          </label>
+          <div className="relative">
+            <User
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-purple-300"
+              size={20}
+            />
+            <input
+              id="name"
+              type="text"
+              placeholder="Your name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full pl-12 pr-4 py-4 bg-purple-50 border-2 border-purple-100 rounded-2xl focus:border-orange-500 focus:outline-none font-medium text-purple-900"
+              required
+            />
+          </div>
+        </div>
+
+        <div>
+          <label
+            htmlFor="email"
+            className="block text-xs font-black text-purple-950 uppercase mb-2 ml-1"
+          >
             Your Email Address
           </label>
           <div className="relative">
-            <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-purple-300" size={20} />
+            <Mail
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-purple-300"
+              size={20}
+            />
             <input
+              id="email"
               type="email"
               placeholder="you@example.com"
               value={email}
@@ -57,10 +93,11 @@ export default function Auth() {
         </div>
 
         <button
+          type="submit"
           disabled={loading}
           className="w-full bg-purple-600 hover:bg-orange-500 text-white font-black py-4 rounded-2xl transition-all shadow-lg flex items-center justify-center gap-2 disabled:opacity-50"
         >
-          {loading ? <Loader2 className="animate-spin" /> : 'SEND MAGIC LINK'}
+          {loading ? <Loader2 className="animate-spin" /> : "JOIN WAITLIST"}
         </button>
       </form>
 
