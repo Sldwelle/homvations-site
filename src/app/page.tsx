@@ -1,25 +1,12 @@
 "use client";
 
-
-import React, { useState, useEffect } from 'react';
-import { supabase } from '../lib/supabase';
+import React from 'react';
 import Auth from './components/Auth';
-import { Pizza, Sparkles, Zap, Clock, ArrowRight, Home, Rocket, Star, Heart, LogOut } from 'lucide-react';
+import { Pizza, Sparkles, ArrowRight, Home, Rocket, Star, Heart } from 'lucide-react';
 
 export default function HomvationsHub() {
-  const [session, setSession] = useState<any>(null);
-  const [profile, setProfile] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // 1. Check if a user is already logged in
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      if (session) fetchProfile(session.user.id);
-      setLoading(false);
-    });
-
-    // 2. Listen for sign-in/sign-out events
+    
+      // 2. Listen for sign-in/sign-out events
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session);
       if (session) fetchProfile(session.user.id);
@@ -28,14 +15,7 @@ export default function HomvationsHub() {
     return () => subscription.unsubscribe();
   }, []);
 
-  async function fetchProfile(userId: string) {
-    const { data } = await supabase.from('profiles').select('*').eq('id', userId).single();
-    if (data) setProfile(data);
-  }
-
-  if (loading) return <div className="min-h-screen bg-[#fdfaff]" />;
-
-  return (
+    return (
     <div className="min-h-screen bg-[#fdfaff] text-[#2d1b4d] font-sans pb-32">
       <div className="h-2 bg-gradient-to-r from-purple-500 via-orange-400 to-teal-400 w-full" />
 
@@ -47,23 +27,16 @@ export default function HomvationsHub() {
           </div>
           <span className="text-2xl font-black tracking-tight text-purple-900">HOMVATIONS</span>
         </div>
-        {session && (
-          <button onClick={() => supabase.auth.signOut()} className="text-purple-900/40 hover:text-orange-500 transition-colors">
-            <LogOut size={20} />
-          </button>
-        )}
+        
       </nav>
 
       <main className="max-w-7xl mx-auto px-6 py-12 text-center">
-        {!session ? (
-          // --- SHOW SIGN-IN BOX IF NOT LOGGED IN ---
-          <div className="py-12">
-            <h1 className="text-4xl font-black mb-8 text-purple-950">Welcome Home</h1>
-            <Auth />
-          </div>
-        ) : (
-          // --- SHOW HUB IF LOGGED IN ---
-          <>
+      <div className="py-12">
+        <h1 className="text-4xl font-black mb-8 text-purple-950">Welcome Home</h1>
+        <Auth />
+      </div>
+
+<>
             <div className="inline-flex items-center gap-2 bg-orange-100 border border-orange-200 px-4 py-2 rounded-full text-orange-600 text-sm font-bold mb-8 animate-bounce">
               <Sparkles size={16} />
               <span>Logged in as {session.user.email}</span>
