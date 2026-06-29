@@ -31,9 +31,7 @@ export default function HomvationsHub() {
 
                         
             <h1 className="text-5xl md:text-7xl font-black mb-8 leading-[1.1] text-purple-950 tracking-tight">
-              Where <span className="text-purple-600 italic">Innovative</span> <br />
-              <span className="text-purple-600">Solutions</span> feel <br />
-              right at <span className="text-orange-500 underline decoration-teal-400 decoration-8 underline-offset-4">Home</span>.
+              Innovation Lives Here
             </h1>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto text-left">
