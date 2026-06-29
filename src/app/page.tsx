@@ -6,15 +6,7 @@ import { Pizza, Sparkles, ArrowRight, Home, Rocket, Star, Heart } from 'lucide-r
 
 export default function HomvationsHub() {
     
-      // 2. Listen for sign-in/sign-out events
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session);
-      if (session) fetchProfile(session.user.id);
-    });
-
-    return () => subscription.unsubscribe();
-  }, []);
-
+     
     return (
     <div className="min-h-screen bg-[#fdfaff] text-[#2d1b4d] font-sans pb-32">
       <div className="h-2 bg-gradient-to-r from-purple-500 via-orange-400 to-teal-400 w-full" />
@@ -37,11 +29,7 @@ export default function HomvationsHub() {
       </div>
 
 
-            <div className="inline-flex items-center gap-2 bg-orange-100 border border-orange-200 px-4 py-2 rounded-full text-orange-600 text-sm font-bold mb-8 animate-bounce">
-              <Sparkles size={16} />
-              <span>Logged in as {session.user.email}</span>
-            </div>
-            
+                        
             <h1 className="text-5xl md:text-7xl font-black mb-8 leading-[1.1] text-purple-950 tracking-tight">
               Where <span className="text-purple-600 italic">Innovative</span> <br />
               <span className="text-purple-600">Solutions</span> feel <br />
@@ -68,41 +56,10 @@ export default function HomvationsHub() {
               </div>
             </div>
           
-        )}
+        
       </main>
 
-      {/* --- TRACKER: ONLY SHOWS IF LOGGED IN --- */}
-      {session && profile && (
-        <footer className="fixed bottom-6 left-0 right-0 px-4 md:px-6 z-50">
-          <div className="max-w-4xl mx-auto bg-white border-4 border-purple-900 rounded-3xl p-5 flex flex-wrap items-center justify-between gap-6 shadow-[0_20px_50px_rgba(0,0,0,0.1)]">
-            <div className="flex items-center gap-4">
-              <div className="bg-orange-100 p-3 rounded-2xl text-orange-600 animate-pulse"><Clock size={24} /></div>
-              <div>
-                <p className="text-[10px] uppercase font-black text-orange-600 tracking-tighter">Your Free Trial</p>
-                <p className="text-base font-bold text-purple-950">7 Days Remaining</p>
-              </div>
-            </div>
-
-            <div className="flex-1 min-w-[200px]">
-               <div className="flex justify-between items-end mb-2">
-                 <div className="flex items-center gap-2">
-                   <Zap size={16} className="text-teal-500 fill-teal-500" />
-                   <span className="text-[10px] font-black text-purple-900 uppercase">Energy Levels</span>
-                 </div>
-                 <span className="text-xs font-black text-purple-900">{profile.tokens_remaining} / 100 Use</span>
-               </div>
-               <div className="h-4 w-full bg-purple-50 rounded-full border-2 border-purple-900 overflow-hidden">
-                  <div className="h-full bg-gradient-to-r from-teal-400 via-purple-400 to-purple-600 transition-all duration-1000" style={{ width: `${profile.tokens_remaining}%` }} />
-               </div>
-            </div>
-
-            <button className="bg-orange-500 hover:bg-orange-600 text-white text-sm font-black px-8 py-4 rounded-2xl transition-all shadow-md shadow-orange-200">
-              GET MORE ENERGY
-            </button>
-          </div>
-        </footer>
-      )}
-
+     
       <div className="fixed top-20 right-[10%] -z-10 text-orange-200 rotate-12 opacity-50"><Heart size={120} /></div>
       <div className="fixed bottom-40 left-[5%] -z-10 text-purple-200 -rotate-12 opacity-50"><Star size={80} /></div>
     </div>
