@@ -36,7 +36,7 @@ export default function HomvationsHub() {
         <Auth />
       </div>
 
-<>
+
             <div className="inline-flex items-center gap-2 bg-orange-100 border border-orange-200 px-4 py-2 rounded-full text-orange-600 text-sm font-bold mb-8 animate-bounce">
               <Sparkles size={16} />
               <span>Logged in as {session.user.email}</span>
@@ -67,7 +67,7 @@ export default function HomvationsHub() {
                 <p className="text-purple-900/50 font-medium">Coming soon to your hub.</p>
               </div>
             </div>
-          </>
+          
         )}
       </main>
 
