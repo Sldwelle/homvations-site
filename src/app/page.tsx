@@ -9,7 +9,7 @@ export default function HomvationsHub() {
      
     return (
     <div className="min-h-screen bg-[#f7fffc] text-[#153a52] font-sans pb-32">
-      <div className="h-2 bg-gradient-to-r from-pink-400 via-teal-400 to-blue-500 w-full" />
+      <div className="h-2 bg-gradient-to-r from-teal-400 to-blue-500 w-full" />
 
       {/* --- NAVIGATION --- */}
       <nav className="p-6 flex justify-between items-center max-w-7xl mx-auto">
@@ -24,11 +24,11 @@ export default function HomvationsHub() {
 
       <main className="max-w-7xl mx-auto px-6 py-12 text-center">
       <div className="py-12">
-        <h1 className="text-4xl font-black mb-8 text-teal-800">Innovation Lives Here</h1>
+        <h1 className="text-4xl font-black mb-8 text-teal-700">Innovation Lives Here</h1>
         <Auth />
       </div>
                         
-            <h1 className="text-5xl md:text-7xl font-black mb-8 leading-[1.1] text-purple-800 tracking-tight">
+            <h1 className="text-5xl md:text-7xl font-black mb-8 leading-[1.1] text-teal-700 tracking-tight">
               Innovation Lives Here
             </h1>
 
@@ -45,9 +45,9 @@ export default function HomvationsHub() {
                 </a>
               </div>
 
-              <div className="bg-white/50 border-4 border-dashed border-purple-200 rounded-[2.5rem] p-8 flex flex-col justify-center items-center text-center opacity-80">
+              <div className="bg-white/50 border-4 border-dashed border-teal-700 rounded-[2.5rem] p-8 flex flex-col justify-center items-center text-center opacity-80">
                 <div className="bg-teal-50 text-teal-500 p-6 rounded-full mb-6"><Rocket size={40} /></div>
-                <h3 className="text-2xl font-bold mb-2 text-purple-900">Next Innovation</h3>
+                <h3 className="text-2xl font-bold mb-2 text-teal-800">Next Innovation</h3>
                 <p className="text-purple-900/50 font-medium">Coming soon to your hub.</p>
               </div>
             </div>
