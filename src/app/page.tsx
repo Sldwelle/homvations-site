@@ -8,34 +8,32 @@ export default function HomvationsHub() {
     
      
     return (
-    <div className="min-h-screen bg-[#fdfaff] text-[#2d1b4d] font-sans pb-32">
-      <div className="h-2 bg-gradient-to-r from-purple-500 via-orange-400 to-teal-400 w-full" />
+    <div className="min-h-screen bg-[#f7fffc] text-[#153a52] font-sans pb-32">
+      <div className="h-2 bg-gradient-to-r from-pink-400 via-teal-400 to-blue-500 w-full" />
 
       {/* --- NAVIGATION --- */}
       <nav className="p-6 flex justify-between items-center max-w-7xl mx-auto">
         <div className="flex items-center gap-2 group cursor-pointer">
-          <div className="bg-purple-600 p-2.5 rounded-2xl shadow-lg shadow-purple-200">
+          <div className="bg-teal-500 p-2.5 rounded-2xl shadow-lg shadow-teal-200">
             <Home size={24} className="text-white" />
           </div>
-          <span className="text-2xl font-black tracking-tight text-purple-900">HOMVATIONS</span>
+          <span className="text-2xl font-black tracking-tight text-teal-700">HOMVATIONS</span>
         </div>
         
       </nav>
 
       <main className="max-w-7xl mx-auto px-6 py-12 text-center">
       <div className="py-12">
-        <h1 className="text-4xl font-black mb-8 text-purple-950">Welcome Home</h1>
+        <h1 className="text-4xl font-black mb-8 text-teal-800">Innovation Lives Here</h1>
         <Auth />
       </div>
-
-
                         
-            <h1 className="text-5xl md:text-7xl font-black mb-8 leading-[1.1] text-purple-950 tracking-tight">
+            <h1 className="text-5xl md:text-7xl font-black mb-8 leading-[1.1] text-purple-800 tracking-tight">
               Innovation Lives Here
             </h1>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto text-left">
-              <div className="group relative bg-white border-4 border-purple-600 rounded-[2.5rem] p-8 shadow-[12px_12px_0px_0px_rgba(107,33,168,0.1)] transition-all">
+              <div className="group relative bg-white border-4 border-teal-400 rounded-[2.5rem] p-8 shadow-[12px_12px_0px_0px_rgba(107,33,168,0.1)] transition-all">
                 <div className="flex justify-between items-start mb-10">
                   <div className="bg-purple-100 text-purple-600 p-4 rounded-3xl"><Pizza size={40} /></div>
                   <span className="bg-orange-500 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase">Active</span>
