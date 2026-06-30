@@ -5,7 +5,14 @@ import React, { useState } from "react";
 import { supabase } from "../../lib/supabase";
 import { Mail, Sparkles, Loader2, User } from "lucide-react";
 
-export default function Auth() {
+type AuthProps = {
+  /** Called with the submitted email after a successful signup. */
+  onSuccess?: (email: string) => void;
+  /** Heading text shown above the form. */
+  heading?: string;
+};
+
+export default function Auth({ onSuccess = () => {}, heading = "Join Homvations" }: AuthProps) {
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -27,6 +34,7 @@ export default function Auth() {
       setMessage("Oops! " + error.message);
     } else {
       setMessage("Thanks! You’re on the list.");
+      onSuccess(email);
       setName("");
       setEmail("");
     }
@@ -40,7 +48,7 @@ export default function Auth() {
         <div className="bg-purple-100 p-3 rounded-2xl">
           <Sparkles size={24} className="text-purple-600" />
         </div>
-        <h2 className="text-2xl font-black italic">Join Homvations</h2>
+        <h2 className="text-2xl font-black italic">{heading}</h2>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -102,7 +110,11 @@ export default function Auth() {
       </form>
 
       {message && (
-        <div className="mt-6 p-4 bg-teal-50 border-2 border-teal-100 text-teal-700 text-sm font-bold rounded-2xl text-center">
+        <div
+          role="status"
+          aria-live="polite"
+          className="mt-6 p-4 bg-teal-50 border-2 border-teal-100 text-teal-700 text-sm font-bold rounded-2xl text-center"
+        >
           {message}
         </div>
       )}
