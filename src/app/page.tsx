@@ -38,6 +38,13 @@ export default function HomvationsHub() {
           </div>
           <span className="text-2xl font-black tracking-tight text-teal-700">HOMVATIONS</span>
         </div>
+
+        <a
+          href="#apps"
+          className="text-sm font-bold text-[#153a52]/70 hover:text-teal-700 transition-colors"
+        >
+          Apps
+        </a>
       </nav>
 
       <main className="max-w-7xl mx-auto px-6 py-12 text-center">
@@ -48,7 +55,7 @@ export default function HomvationsHub() {
           Sign up once to unlock every app in the Homvations hub.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto text-left">
+        <div id="apps" className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto text-left scroll-mt-24">
           {unlocked ? (
             <div className="group relative bg-white border-4 border-teal-400 rounded-[2.5rem] p-8 shadow-[12px_12px_0px_0px_rgba(107,33,168,0.1)] transition-all">
               <div className="flex justify-between items-start mb-10">
