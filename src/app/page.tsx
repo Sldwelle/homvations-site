@@ -73,7 +73,7 @@ export default function HomvationsHub() {
       <main className="relative z-10 max-w-[1140px] mx-auto px-6 pt-22 text-center">
         <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-md border border-white/10 px-4.5 py-2 rounded-full text-[13px] font-bold text-teal-300 mb-8">
           <ShieldCheck size={14} />
-          Now onboarding early members
+          Now accepting waitlist sign-ups
         </div>
 
         <h1 className="text-6xl md:text-8xl font-black mb-6 leading-[1.02] tracking-tight text-balance bg-gradient-to-br from-white via-teal-200 to-purple-200 bg-clip-text text-transparent">
