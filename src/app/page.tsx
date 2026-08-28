@@ -4,10 +4,9 @@ import React, { useEffect, useState } from 'react';
 import Auth from './components/Auth';
 import {
   Pizza,
-  ArrowRight,
   Home,
   Rocket,
-  Lock,
+  Hammer,
   Accessibility,
   Scale,
   Leaf,
@@ -80,7 +79,7 @@ export default function HomvationsHub() {
           Innovation lives here.
         </h1>
         <p className="text-lg md:text-xl text-[rgba(242,245,246,0.62)] font-medium mb-11 max-w-xl mx-auto">
-          One sign-up unlocks every app in the Homvations hub — built to be accessible, secure, and sustainable from day one.
+          One sign-up gets you on the list for every app in the Homvations hub, as each one launches — built to be accessible, secure, and sustainable from day one.
         </p>
 
         {/* trust row */}
@@ -97,77 +96,45 @@ export default function HomvationsHub() {
         </div>
 
         {/* --- JOIN THE HOMVATIONS WAITLIST --- */}
-        {!unlocked && (
-          <div
-            id="signup"
-            className="max-w-md mx-auto mb-18 bg-white/[0.045] backdrop-blur-2xl border border-teal-300/20 rounded-[28px] p-8 text-left scroll-mt-24"
-          >
-            <p className="text-[13px] font-semibold text-teal-300 mb-5 text-center">
-              One sign-up. Every Homvations project, as it launches.
-            </p>
-            <Auth heading="Join the Homvations waitlist" onSuccess={handleUnlock} />
-          </div>
-        )}
+        <div
+          id="signup"
+          className="max-w-md mx-auto mb-18 bg-white/[0.045] backdrop-blur-2xl border border-teal-300/20 rounded-[28px] p-8 text-left scroll-mt-24"
+        >
+          <p className="text-[13px] font-semibold text-teal-300 mb-5 text-center">
+            One sign-up. Every Homvations project, as it launches.
+          </p>
+          <Auth heading="Join the Homvations waitlist" onSuccess={handleUnlock} />
+        </div>
 
         {/* --- BENTO GRID --- */}
         <div
           id="apps"
           className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-5 text-left mb-24 scroll-mt-24"
         >
-          {unlocked ? (
-            <div className="md:col-span-2 md:row-span-2 relative bg-white/[0.045] backdrop-blur-2xl border border-purple-300/25 rounded-[28px] p-9 flex flex-col overflow-hidden">
-              <div className="pointer-events-none absolute -top-20 -right-16 w-72 h-72 rounded-full bg-purple-400/45 blur-[40px]" />
-              <div className="relative z-10 flex justify-between items-start mb-7">
-                <div className="relative flex items-center justify-center">
-                  <div className="absolute w-21 h-21 rounded-full bg-purple-300/60 blur-[24px]" style={{ width: 84, height: 84 }} />
-                  <div className="relative bg-purple-300/15 border border-purple-300/30 text-purple-300 p-4 rounded-2xl">
-                    <Pizza size={32} />
-                  </div>
+          <div className="md:col-span-2 md:row-span-2 relative bg-white/[0.045] backdrop-blur-2xl border border-purple-300/20 rounded-[28px] p-9 flex flex-col overflow-hidden">
+            <div className="pointer-events-none absolute -top-20 -right-16 w-72 h-72 rounded-full bg-purple-400/40 blur-[40px]" />
+            <div className="relative z-10 flex justify-between items-start mb-7">
+              <div className="relative flex items-center justify-center">
+                <div className="absolute rounded-full bg-purple-300/55 blur-[24px]" style={{ width: 84, height: 84 }} />
+                <div className="relative bg-purple-300/15 border border-purple-300/30 text-purple-300 p-4 rounded-2xl">
+                  <Pizza size={32} />
                 </div>
-                <span className="flex items-center gap-1.5 bg-emerald-400/10 border border-emerald-400/30 text-emerald-300 text-[11px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-wide">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
-                  Active
-                </span>
               </div>
-              <h3 className="relative z-10 text-3xl font-black mb-2.5 text-[#f2f5f6] tracking-tight">Purple Pizza AI</h3>
-              <p className="relative z-10 text-[15px] text-[rgba(242,245,246,0.6)] mb-8 font-medium leading-relaxed max-w-md">
-                Our flagship AI chef, designing the world&apos;s most inventive pizzas. Ready whenever you are.
-              </p>
-              <a
-                href="https://purplepizzaai.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="relative z-10 mt-auto max-w-md w-full flex items-center justify-center gap-2 bg-gradient-to-br from-purple-600 to-orange-500 text-white font-bold py-4 rounded-2xl hover:opacity-90 transition-opacity text-base shadow-[0_0_32px_rgba(147,51,234,0.45)]"
-              >
-                Launch app <ArrowRight size={19} />
-              </a>
+              <span className="flex items-center gap-1.5 bg-white/[0.07] border border-white/[0.12] text-[#f2f5f6] text-[11px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-wide">
+                <Hammer size={11} /> Under innovation
+              </span>
             </div>
-          ) : (
-            <div className="md:col-span-2 md:row-span-2 relative bg-white/[0.045] backdrop-blur-2xl border border-purple-300/20 rounded-[28px] p-9 flex flex-col overflow-hidden">
-              <div className="pointer-events-none absolute -top-20 -right-16 w-72 h-72 rounded-full bg-purple-400/40 blur-[40px]" />
-              <div className="relative z-10 flex justify-between items-start mb-7">
-                <div className="relative flex items-center justify-center">
-                  <div className="absolute rounded-full bg-purple-300/55 blur-[24px]" style={{ width: 84, height: 84 }} />
-                  <div className="relative bg-purple-300/15 border border-purple-300/30 text-purple-300 p-4 rounded-2xl">
-                    <Pizza size={32} />
-                  </div>
-                </div>
-                <span className="flex items-center gap-1.5 bg-white/[0.07] border border-white/[0.12] text-[#f2f5f6] text-[11px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-wide">
-                  <Lock size={11} /> Locked
-                </span>
-              </div>
-              <h3 className="relative z-10 text-3xl font-black mb-2.5 text-[#f2f5f6] tracking-tight">Purple Pizza AI</h3>
-              <p className="relative z-10 text-[15px] text-[rgba(242,245,246,0.6)] mb-7 font-medium leading-relaxed max-w-md">
-                Our flagship AI chef, designing the world&apos;s most inventive pizzas. Join the Homvations waitlist above to unlock it.
-              </p>
-              <a
-                href="#signup"
-                className="relative z-10 mt-auto max-w-md w-full flex items-center justify-center gap-2 bg-white/10 border border-white/15 text-[#f2f5f6] font-bold py-4 rounded-2xl hover:bg-white/15 transition-colors text-base"
-              >
-                <Lock size={18} /> Join the waitlist to unlock
-              </a>
-            </div>
-          )}
+            <h3 className="relative z-10 text-3xl font-black mb-2.5 text-[#f2f5f6] tracking-tight">Purple Pizza AI</h3>
+            <p className="relative z-10 text-[15px] text-[rgba(242,245,246,0.6)] mb-7 font-medium leading-relaxed max-w-md">
+              Our flagship AI chef, designing the world&apos;s most inventive pizzas. Still under innovation — join the Homvations waitlist above and we&apos;ll let you know the moment it opens.
+            </p>
+            <a
+              href="#signup"
+              className="relative z-10 mt-auto max-w-md w-full flex items-center justify-center gap-2 bg-white/10 border border-white/15 text-[#f2f5f6] font-bold py-4 rounded-2xl hover:bg-white/15 transition-colors text-base"
+            >
+              Join the waitlist
+            </a>
+          </div>
 
           {/* trust card */}
           <div className="bg-white/[0.045] backdrop-blur-2xl border border-teal-300/20 rounded-[24px] p-6 flex flex-col gap-4">
