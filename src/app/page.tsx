@@ -96,6 +96,19 @@ export default function HomvationsHub() {
           </span>
         </div>
 
+        {/* --- JOIN THE HOMVATIONS WAITLIST --- */}
+        {!unlocked && (
+          <div
+            id="signup"
+            className="max-w-md mx-auto mb-18 bg-white/[0.045] backdrop-blur-2xl border border-teal-300/20 rounded-[28px] p-8 text-left scroll-mt-24"
+          >
+            <p className="text-[13px] font-semibold text-teal-300 mb-5 text-center">
+              One sign-up. Every Homvations project, as it launches.
+            </p>
+            <Auth heading="Join the Homvations waitlist" onSuccess={handleUnlock} />
+          </div>
+        )}
+
         {/* --- BENTO GRID --- */}
         <div
           id="apps"
@@ -145,11 +158,14 @@ export default function HomvationsHub() {
               </div>
               <h3 className="relative z-10 text-3xl font-black mb-2.5 text-[#f2f5f6] tracking-tight">Purple Pizza AI</h3>
               <p className="relative z-10 text-[15px] text-[rgba(242,245,246,0.6)] mb-7 font-medium leading-relaxed max-w-md">
-                Our flagship AI chef, designing the world&apos;s most inventive pizzas. Enter your details below to unlock it.
+                Our flagship AI chef, designing the world&apos;s most inventive pizzas. Join the Homvations waitlist above to unlock it.
               </p>
-              <div id="signup" className="relative z-10 mt-auto max-w-md">
-                <Auth heading="Unlock Purple Pizza AI" onSuccess={handleUnlock} />
-              </div>
+              <a
+                href="#signup"
+                className="relative z-10 mt-auto max-w-md w-full flex items-center justify-center gap-2 bg-white/10 border border-white/15 text-[#f2f5f6] font-bold py-4 rounded-2xl hover:bg-white/15 transition-colors text-base"
+              >
+                <Lock size={18} /> Join the waitlist to unlock
+              </a>
             </div>
           )}
 
