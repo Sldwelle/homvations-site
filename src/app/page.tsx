@@ -2,7 +2,18 @@
 
 import React, { useEffect, useState } from 'react';
 import Auth from './components/Auth';
-import { Pizza, ArrowRight, Home, Rocket, Star, Heart, Lock, Accessibility, Scale, Leaf } from 'lucide-react';
+import {
+  Pizza,
+  ArrowRight,
+  Home,
+  Rocket,
+  Lock,
+  Accessibility,
+  Scale,
+  Leaf,
+  ShieldCheck,
+  CheckCircle2,
+} from 'lucide-react';
 
 // Apps unlocked once a visitor submits the name/email form are remembered
 // here so they don't have to sign up again on every visit.
@@ -27,123 +38,214 @@ export default function HomvationsHub() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f7fffc] text-[#153a52] font-sans pb-32">
-      <div className="h-2 bg-gradient-to-r from-teal-400 to-blue-500 w-full" />
+    <div className="min-h-screen bg-[#0a0e14] text-[#f2f5f6] font-sans relative overflow-hidden pb-28">
+      {/* glow orbs */}
+      <div className="pointer-events-none absolute -top-56 left-[8%] w-[640px] h-[640px] rounded-full bg-teal-500/30 blur-[90px]" />
+      <div className="pointer-events-none absolute top-10 right-[4%] w-[560px] h-[560px] rounded-full bg-purple-600/30 blur-[90px]" />
+      <div className="pointer-events-none absolute top-[1180px] left-[42%] w-[700px] h-[500px] rounded-full bg-orange-500/20 blur-[100px]" />
 
-      {/* --- NAVIGATION --- */}
-      <nav className="p-6 flex justify-between items-center max-w-7xl mx-auto">
-        <div className="flex items-center gap-2 group cursor-pointer">
-          <div className="bg-teal-500 p-2.5 rounded-2xl shadow-lg shadow-teal-200">
-            <Home size={24} className="text-white" />
+      {/* --- FLOATING GLASS NAV --- */}
+      <div className="relative z-10 max-w-[1140px] mx-auto pt-6 px-6">
+        <nav className="flex justify-between items-center px-5 py-3.5 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl">
+          <div className="flex items-center gap-2.5 group cursor-pointer">
+            <div className="bg-gradient-to-br from-teal-400 to-teal-500 p-2 rounded-xl shadow-[0_0_24px_rgba(45,212,191,0.55)]">
+              <Home size={20} className="text-[#0a0e14]" strokeWidth={2.4} />
+            </div>
+            <span className="text-lg font-black tracking-tight text-[#f2f5f6]">Homvations</span>
           </div>
-          <span className="text-2xl font-black tracking-tight text-teal-700">HOMVATIONS</span>
+          <div className="flex items-center gap-6">
+            <a href="#apps" className="text-sm font-semibold text-[rgba(242,245,246,0.65)] hover:text-[#f2f5f6] transition-colors">
+              Apps
+            </a>
+            <a href="#commitments" className="text-sm font-semibold text-[rgba(242,245,246,0.65)] hover:text-[#f2f5f6] transition-colors">
+              Commitments
+            </a>
+            <a
+              href="#signup"
+              className="text-sm font-bold text-[#0a0e14] bg-gradient-to-br from-teal-300 to-teal-400 px-5 py-2.5 rounded-xl shadow-[0_0_22px_rgba(45,212,191,0.4)] hover:opacity-90 transition-opacity"
+            >
+              Join waitlist
+            </a>
+          </div>
+        </nav>
+      </div>
+
+      <main className="relative z-10 max-w-[1140px] mx-auto px-6 pt-22 text-center">
+        <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-md border border-white/10 px-4.5 py-2 rounded-full text-[13px] font-bold text-teal-300 mb-8">
+          <ShieldCheck size={14} />
+          Now onboarding early members
         </div>
 
-        <a
-          href="#apps"
-          className="text-sm font-bold text-[#153a52]/70 hover:text-teal-700 transition-colors"
-        >
-          Apps
-        </a>
-      </nav>
-
-      <main className="max-w-7xl mx-auto px-6 py-12 text-center">
-        <h1 className="text-5xl md:text-7xl font-black mb-4 leading-[1.1] text-teal-700 tracking-tight">
-          Innovation Lives Here
+        <h1 className="text-6xl md:text-8xl font-black mb-6 leading-[1.02] tracking-tight text-balance bg-gradient-to-br from-white via-teal-200 to-purple-200 bg-clip-text text-transparent">
+          Innovation lives here.
         </h1>
-        <p className="text-lg text-[#153a52]/70 font-medium mb-12 max-w-2xl mx-auto">
-          Sign up once to unlock every app in the Homvations hub.
+        <p className="text-lg md:text-xl text-[rgba(242,245,246,0.62)] font-medium mb-11 max-w-xl mx-auto">
+          One sign-up unlocks every app in the Homvations hub — built to be accessible, secure, and sustainable from day one.
         </p>
 
-        <div id="apps" className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto text-left scroll-mt-24">
+        {/* trust row */}
+        <div className="flex justify-center gap-3.5 flex-wrap mb-18">
+          <span className="flex items-center gap-2 text-[13px] font-semibold text-[rgba(242,245,246,0.75)] bg-white/[0.04] border border-white/[0.08] px-4 py-2.5 rounded-full">
+            <ShieldCheck size={15} className="text-teal-300" /> Encrypted &amp; private
+          </span>
+          <span className="flex items-center gap-2 text-[13px] font-semibold text-[rgba(242,245,246,0.75)] bg-white/[0.04] border border-white/[0.08] px-4 py-2.5 rounded-full">
+            <CheckCircle2 size={15} className="text-teal-300" /> No spam, ever
+          </span>
+          <span className="flex items-center gap-2 text-[13px] font-semibold text-[rgba(242,245,246,0.75)] bg-white/[0.04] border border-white/[0.08] px-4 py-2.5 rounded-full">
+            <CheckCircle2 size={15} className="text-teal-300" /> Unsubscribe anytime
+          </span>
+        </div>
+
+        {/* --- BENTO GRID --- */}
+        <div
+          id="apps"
+          className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-5 text-left mb-24 scroll-mt-24"
+        >
           {unlocked ? (
-            <div className="group relative bg-white border-4 border-teal-400 rounded-[2.5rem] p-8 shadow-[12px_12px_0px_0px_rgba(107,33,168,0.1)] transition-all">
-              <div className="flex justify-between items-start mb-10">
-                <div className="bg-purple-100 text-purple-600 p-4 rounded-3xl"><Pizza size={40} /></div>
-                <span className="bg-orange-500 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase">Active</span>
+            <div className="md:col-span-2 md:row-span-2 relative bg-white/[0.045] backdrop-blur-2xl border border-purple-300/25 rounded-[28px] p-9 flex flex-col overflow-hidden">
+              <div className="pointer-events-none absolute -top-20 -right-16 w-72 h-72 rounded-full bg-purple-400/45 blur-[40px]" />
+              <div className="relative z-10 flex justify-between items-start mb-7">
+                <div className="relative flex items-center justify-center">
+                  <div className="absolute w-21 h-21 rounded-full bg-purple-300/60 blur-[24px]" style={{ width: 84, height: 84 }} />
+                  <div className="relative bg-purple-300/15 border border-purple-300/30 text-purple-300 p-4 rounded-2xl">
+                    <Pizza size={32} />
+                  </div>
+                </div>
+                <span className="flex items-center gap-1.5 bg-emerald-400/10 border border-emerald-400/30 text-emerald-300 text-[11px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-wide">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
+                  Active
+                </span>
               </div>
-              <h3 className="text-3xl font-black mb-4 text-purple-900">Purple Pizza AI</h3>
-              <p className="text-purple-900/70 mb-10 font-medium text-lg leading-relaxed">Our flagship AI chef! Designing the world&apos;s most innovative pizzas.</p>
+              <h3 className="relative z-10 text-3xl font-black mb-2.5 text-[#f2f5f6] tracking-tight">Purple Pizza AI</h3>
+              <p className="relative z-10 text-[15px] text-[rgba(242,245,246,0.6)] mb-8 font-medium leading-relaxed max-w-md">
+                Our flagship AI chef, designing the world&apos;s most inventive pizzas. Ready whenever you are.
+              </p>
               <a
                 href="https://purplepizzaai.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-3 bg-purple-600 text-white font-black py-4 px-8 rounded-2xl hover:bg-orange-500 transition-all text-lg shadow-lg shadow-purple-200"
+                className="relative z-10 mt-auto max-w-md w-full flex items-center justify-center gap-2 bg-gradient-to-br from-purple-600 to-orange-500 text-white font-bold py-4 rounded-2xl hover:opacity-90 transition-opacity text-base shadow-[0_0_32px_rgba(147,51,234,0.45)]"
               >
-                Launch App <ArrowRight size={22} />
+                Launch app <ArrowRight size={19} />
               </a>
             </div>
           ) : (
-            <div className="bg-white border-4 border-purple-900 rounded-[2.5rem] p-8 shadow-[12px_12px_0px_0px_rgba(107,33,168,0.1)]">
-              <div className="flex justify-between items-start mb-6">
-                <div className="bg-purple-100 text-purple-600 p-4 rounded-3xl"><Pizza size={40} /></div>
-                <span className="flex items-center gap-1 bg-[#153a52] text-white text-[10px] font-black px-3 py-1 rounded-full uppercase">
-                  <Lock size={12} /> Locked
+            <div className="md:col-span-2 md:row-span-2 relative bg-white/[0.045] backdrop-blur-2xl border border-purple-300/20 rounded-[28px] p-9 flex flex-col overflow-hidden">
+              <div className="pointer-events-none absolute -top-20 -right-16 w-72 h-72 rounded-full bg-purple-400/40 blur-[40px]" />
+              <div className="relative z-10 flex justify-between items-start mb-7">
+                <div className="relative flex items-center justify-center">
+                  <div className="absolute rounded-full bg-purple-300/55 blur-[24px]" style={{ width: 84, height: 84 }} />
+                  <div className="relative bg-purple-300/15 border border-purple-300/30 text-purple-300 p-4 rounded-2xl">
+                    <Pizza size={32} />
+                  </div>
+                </div>
+                <span className="flex items-center gap-1.5 bg-white/[0.07] border border-white/[0.12] text-[#f2f5f6] text-[11px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-wide">
+                  <Lock size={11} /> Locked
                 </span>
               </div>
-              <h3 className="text-3xl font-black mb-2 text-purple-900">Purple Pizza AI</h3>
-              <p className="text-purple-900/70 mb-6 font-medium leading-relaxed">Our flagship AI chef! Enter your name and email below to unlock it.</p>
-              <Auth heading="Unlock Purple Pizza AI" onSuccess={handleUnlock} />
+              <h3 className="relative z-10 text-3xl font-black mb-2.5 text-[#f2f5f6] tracking-tight">Purple Pizza AI</h3>
+              <p className="relative z-10 text-[15px] text-[rgba(242,245,246,0.6)] mb-7 font-medium leading-relaxed max-w-md">
+                Our flagship AI chef, designing the world&apos;s most inventive pizzas. Enter your details below to unlock it.
+              </p>
+              <div id="signup" className="relative z-10 mt-auto max-w-md">
+                <Auth heading="Unlock Purple Pizza AI" onSuccess={handleUnlock} />
+              </div>
             </div>
           )}
 
-          <div className="bg-white/50 border-4 border-dashed border-teal-700 rounded-[2.5rem] p-8 flex flex-col justify-center items-center text-center opacity-80">
-            <div className="bg-teal-50 text-teal-500 p-6 rounded-full mb-6"><Rocket size={40} /></div>
-            <h3 className="text-2xl font-bold mb-2 text-teal-800">Next Innovation</h3>
-            <p className="text-purple-900/50 font-medium">Coming soon to your hub.</p>
+          {/* trust card */}
+          <div className="bg-white/[0.045] backdrop-blur-2xl border border-teal-300/20 rounded-[24px] p-6 flex flex-col gap-4">
+            <div className="flex items-center gap-2.5">
+              <div className="bg-teal-300/15 border border-teal-300/30 text-teal-300 p-2 rounded-xl">
+                <ShieldCheck size={18} />
+              </div>
+              <h4 className="text-[15px] font-black text-[#f2f5f6]">Built to be trusted</h4>
+            </div>
+            <div className="flex flex-col gap-2.5">
+              {["End-to-end encrypted", "No data resold, ever", "One-click unsubscribe"].map((item) => (
+                <div key={item} className="flex items-center gap-2 text-[13px] font-semibold text-[rgba(242,245,246,0.68)]">
+                  <CheckCircle2 size={14} className="text-teal-300 shrink-0" />
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* next innovation teaser */}
+          <div className="bg-white/[0.025] border border-dashed border-teal-300/25 rounded-[24px] p-6 flex flex-col items-center justify-center text-center gap-3.5">
+            <div className="relative flex items-center justify-center">
+              <div className="absolute rounded-full bg-teal-300/40 blur-[20px]" style={{ width: 64, height: 64 }} />
+              <div className="relative bg-teal-300/10 text-teal-300 p-3.5 rounded-full">
+                <Rocket size={24} />
+              </div>
+            </div>
+            <div>
+              <h4 className="text-[15px] font-black text-[#f2f5f6] mb-1">Next innovation</h4>
+              <p className="text-[12.5px] text-[rgba(242,245,246,0.6)] font-medium">
+                {unlocked ? "Coming soon. We'll let you know the moment it's live." : "Coming soon to your hub."}
+              </p>
+            </div>
           </div>
         </div>
       </main>
 
       {/* --- OUR COMMITMENTS --- */}
-      <section className="max-w-6xl mx-auto px-6 py-12">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-black mb-4 text-teal-700 tracking-tight">
+      <section id="commitments" className="relative z-10 max-w-[1100px] mx-auto px-6 scroll-mt-24">
+        <div className="text-center max-w-xl mx-auto mb-12">
+          <h2 className="text-4xl md:text-[38px] font-black mb-3.5 text-[#f2f5f6] tracking-tight">
             Our Commitments
           </h2>
-          <p className="text-lg text-[#153a52]/70 font-medium max-w-2xl mx-auto">
+          <p className="text-base text-[rgba(242,245,246,0.55)] font-medium leading-relaxed">
             Every app in this hub is built on the same three principles, not just stated on this page.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-          <div className="bg-white border-4 border-teal-700 rounded-[2.5rem] p-8 shadow-[12px_12px_0px_0px_rgba(20,184,166,0.15)]">
-            <div className="bg-teal-50 text-teal-600 p-4 rounded-3xl w-fit mb-6">
-              <Accessibility size={36} />
+        <div className="relative grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="hidden md:block absolute top-[34px] left-[16.5%] right-[16.5%] h-px bg-gradient-to-r from-teal-300/40 via-purple-300/40 to-orange-300/40" />
+
+          <div className="relative bg-white/[0.045] backdrop-blur-xl border border-teal-300/20 rounded-[22px] p-7">
+            <div className="relative w-fit mb-5">
+              <div className="absolute rounded-full bg-teal-300/40 blur-[18px]" style={{ width: 62, height: 62 }} />
+              <div className="relative bg-teal-300/12 text-teal-300 p-3 rounded-2xl">
+                <Accessibility size={26} />
+              </div>
             </div>
-            <h3 className="text-2xl font-black mb-3 text-teal-800">Accessibility</h3>
-            <p className="text-[#153a52]/70 font-medium leading-relaxed">
+            <h3 className="text-lg font-black mb-2.5 text-[#f2f5f6]">Accessibility</h3>
+            <p className="text-[13.5px] text-[rgba(242,245,246,0.55)] font-medium leading-relaxed">
               We build to WCAG standards &mdash; keyboard navigation, screen-reader support, and readable
               contrast &mdash; so every app works for every visitor, not just some.
             </p>
           </div>
 
-          <div className="bg-white border-4 border-purple-900 rounded-[2.5rem] p-8 shadow-[12px_12px_0px_0px_rgba(107,33,168,0.1)]">
-            <div className="bg-purple-100 text-purple-600 p-4 rounded-3xl w-fit mb-6">
-              <Scale size={36} />
+          <div className="relative bg-white/[0.045] backdrop-blur-xl border border-purple-300/20 rounded-[22px] p-7">
+            <div className="relative w-fit mb-5">
+              <div className="absolute rounded-full bg-purple-300/40 blur-[18px]" style={{ width: 62, height: 62 }} />
+              <div className="relative bg-purple-300/12 text-purple-300 p-3 rounded-2xl">
+                <Scale size={26} />
+              </div>
             </div>
-            <h3 className="text-2xl font-black mb-3 text-purple-900">Equality</h3>
-            <p className="text-purple-900/70 font-medium leading-relaxed">
+            <h3 className="text-lg font-black mb-2.5 text-[#f2f5f6]">Equality</h3>
+            <p className="text-[13.5px] text-[rgba(242,245,246,0.55)] font-medium leading-relaxed">
               We design for diverse communities from the start, not as an afterthought, and hold our
               products to that standard before they ship.
             </p>
           </div>
 
-          <div className="bg-white border-4 border-orange-500 rounded-[2.5rem] p-8 shadow-[12px_12px_0px_0px_rgba(249,115,22,0.15)]">
-            <div className="bg-orange-50 text-orange-500 p-4 rounded-3xl w-fit mb-6">
-              <Leaf size={36} />
+          <div className="relative bg-white/[0.045] backdrop-blur-xl border border-orange-300/20 rounded-[22px] p-7">
+            <div className="relative w-fit mb-5">
+              <div className="absolute rounded-full bg-orange-300/40 blur-[18px]" style={{ width: 62, height: 62 }} />
+              <div className="relative bg-orange-300/12 text-orange-300 p-3 rounded-2xl">
+                <Leaf size={26} />
+              </div>
             </div>
-            <h3 className="text-2xl font-black mb-3 text-orange-700">Sustainability</h3>
-            <p className="text-[#153a52]/70 font-medium leading-relaxed">
+            <h3 className="text-lg font-black mb-2.5 text-[#f2f5f6]">Sustainability</h3>
+            <p className="text-[13.5px] text-[rgba(242,245,246,0.55)] font-medium leading-relaxed">
               We choose efficient infrastructure and mindful defaults, aiming to build apps that do
               more with less.
             </p>
           </div>
         </div>
       </section>
-
-      <div className="fixed top-20 right-[10%] -z-10 text-orange-200 rotate-12 opacity-50"><Heart size={120} /></div>
-      <div className="fixed bottom-40 left-[5%] -z-10 text-purple-200 -rotate-12 opacity-50"><Star size={80} /></div>
     </div>
   );
 }
